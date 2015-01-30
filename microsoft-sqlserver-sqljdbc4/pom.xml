@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.garethahealy.osgi.shaded</groupId>
+        <artifactId>osgi-shaded</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <artifactId>shaded-microsoft-sqlserver-sqljdbc4</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+    <name>${project.artifactId}</name>
+
+    <properties>
+        <build.osgi.import.pkg>
+            !${build.osgi.export.pkg},
+            javax.naming;resolution:=optional,
+            javax.naming.spi;resolution:=optional,
+            javax.net.ssl;resolution:=optional,
+            javax.security.auth;resolution:=optional,
+            javax.security.auth.login;resolution:=optional,
+            javax.security.auth.x500;resolution:=optional,
+            javax.sql;resolution:=optional,
+            javax.transaction.xa;resolution:=optional,
+            javax.xml.parsers;resolution:=optional,
+            javax.xml.stream;resolution:=optional,
+            javax.xml.transform;resolution:=optional,
+            javax.xml.transform.dom;resolution:=optional,
+            javax.xml.transform.sax;resolution:=optional,
+            javax.xml.transform.stax;resolution:=optional,
+            javax.xml.transform.stream;resolution:=optional,
+            org.ietf.jgss;resolution:=optional,
+            org.w3c.dom;resolution:=optional,
+            org.xml.sax;resolution:=optional,
+            org.xml.sax.helpers;resolution:=optional,
+            *
+        </build.osgi.import.pkg>
+        <build.osgi.export.pkg>
+            com.microsoft.sqlserver.jdbc;uses:="microsoft.sql,
+                javax.sql,
+                javax.security.auth,
+                org.ietf.jgss,javax.security.auth.login,
+                javax.naming,javax.naming.spi,
+                org.xml.sax,javax.xml.transform.stax,
+                javax.xml.parsers,
+                javax.xml.transform.dom,
+                org.w3c.dom,javax.xml.stream,
+                javax.xml.transform,
+                javax.xml.transform.stream,
+                javax.xml.transform.sax,org.xml.sax.helpers,
+                javax.transaction.xa,
+                javax.security.auth.x500,
+                javax.net.ssl";version="${project.version}",
+            microsoft.sql;version="${project.version}"
+        </build.osgi.export.pkg>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>com.microsoft.sqlserver:sqljdbc4</include>
+                                </includes>
+                            </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>com.microsoft.sqlserver:sqljdbc4</artifact>
+                                    <excludes>
+                                        <exclude>**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <promoteTransitiveDependencies>false</promoteTransitiveDependencies>
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+
+

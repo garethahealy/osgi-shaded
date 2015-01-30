@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.garethahealy</groupId>
+        <artifactId>osgi-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../poms/osgi-parent</relativePath>
+    </parent>
+    <groupId>com.garethahealy.osgi.shaded</groupId>
+    <artifactId>osgi-shaded</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+
+    <properties>
+        <sqljdbc4-version>4.1</sqljdbc4-version>
+    </properties>
+
+    <modules>
+        <module>microsoft-sqlserver-sqljdbc4</module>
+    </modules>
+
+    <!-- maven exclude dependancies from parent pom -->
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>sqljdbc4</artifactId>
+                <version>${sqljdbc4-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Skip the toplevel code quality checks -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
