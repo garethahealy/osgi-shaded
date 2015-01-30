@@ -27,3 +27,9 @@ JmsProducer_*.xml
 
 # Testing #
 .ekstazi/
+
+# Shaded generated POM
+microsoft-sqlserver-sqljdbc4/dependency-reduced-pom.xml
+
+# Dont ignore the SQL JDBC JAR, as its not in maven central, so needs to be downloaded externally
+!microsoft-sqlserver-sqljdbc4/lib/sqljdbc41.jar
