@@ -1,3 +1,7 @@
 osgi-shaded
-===========
-Collection of OSGi shaded bundles which i've needed to do
+=================
+Collection of OSGi shaded bundles.
+
+What is shading?
+=================
+http://icodebythesea.blogspot.co.uk/2012/03/making-osgi-bundle-out-of-third-party.html
