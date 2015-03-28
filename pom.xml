@@ -6,13 +6,13 @@
     <parent>
         <groupId>com.garethahealy</groupId>
         <artifactId>osgi-plugins-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.2</version>
         <relativePath>../poms/osgi-plugins-parent</relativePath>
     </parent>
     <groupId>com.garethahealy.osgi.shaded</groupId>
     <artifactId>osgi-shaded</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>${project.artifactId}</name>
 
     <scm>
