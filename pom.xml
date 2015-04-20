@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.garethahealy</groupId>
         <artifactId>osgi-plugins-parent</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.5-SNAPSHOT</version>
         <relativePath>../poms/osgi-plugins-parent</relativePath>
     </parent>
     <groupId>com.garethahealy.osgi.shaded</groupId>
@@ -35,6 +35,7 @@
                 <groupId>com.microsoft.sqlserver</groupId>
                 <artifactId>sqljdbc4</artifactId>
                 <version>${sqljdbc4-version}</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
