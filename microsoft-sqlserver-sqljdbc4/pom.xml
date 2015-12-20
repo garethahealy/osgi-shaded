@@ -6,13 +6,13 @@
     <parent>
         <groupId>com.garethahealy.osgi.shaded</groupId>
         <artifactId>osgi-shaded</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <relativePath>../</relativePath>
     </parent>
     <artifactId>shaded-microsoft-sqlserver-sqljdbc4</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>bundle</packaging>
-    <name>${project.artifactId}</name>
+    <name>GarethHealy :: OSGi Shaded :: MSSQL JDBC 4</name>
 
     <properties>
         <build.osgi.import.pkg>

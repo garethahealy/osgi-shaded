@@ -1,5 +1,4 @@
-microsoft-sqlserver-sqljdbc4
-============================
+# microsoft-sqlserver-sqljdbc4
 The JAR is not included within maven central, so you will need to follow the below:
 
 1. Visit the MSDN[2] site for SQL Server and download the latest version of the JDBC driver for your operating system.
