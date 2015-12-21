@@ -1,0 +1,7 @@
+language: java
+before_install: mvn install:install-file -Dfile=microsoft-sqlserver-sqljdbc4/lib/sqljdbc41.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.1
+install: mvn clean install
+jdk:
+  - openjdk7
+  - oraclejdk7
+  - oraclejdk8
