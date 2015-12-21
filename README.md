@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/garethahealy/osgi-shaded.svg)](https://travis-ci.org/garethahealy/osgi-shaded)
+
 # osgi-shaded
 Collection of OSGi shaded bundles.
 
