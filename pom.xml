@@ -4,15 +4,15 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.garethahealy</groupId>
+        <groupId>com.garethahealy.poms</groupId>
         <artifactId>osgi-plugins-parent</artifactId>
-        <version>1.1.0</version>
+        <version>1.0.0</version>
         <relativePath/>
     </parent>
-    <groupId>com.garethahealy.osgi.shaded</groupId>
-    <artifactId>osgi-shaded</artifactId>
+    <groupId>com.garethahealy.osgi-shaded</groupId>
+    <artifactId>osgi-shaded-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>GarethHealy :: OSGi Shaded</name>
 
     <scm>
