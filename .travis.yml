@@ -1,10 +1,15 @@
+dist: trusty
 language: java
-before_install: mvn install:install-file -Dfile=microsoft-sqlserver-sqljdbc4/lib/sqljdbc41.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.1
-install: mvn clean install
 jdk:
-  - openjdk7
-  - oraclejdk7
   - oraclejdk8
+install:
+  - java -version && javac -version && mvn -version
+  - mvn install:install-file -Dfile=microsoft-sqlserver-sqljdbc4/lib/sqljdbc41.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.1
+before_script:
+  - mvn dependency:resolve-plugins dependency:resolve
+script:
+  - mvn clean install -Dgpg.skip=true
 cache:
   directories:
   - $HOME/.m2
+  - $HOME/.victims
