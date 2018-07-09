@@ -2,16 +2,15 @@ sudo: required
 dist: trusty
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 install:
-  - bash .travis/update.sh
-  - export M2_HOME=/usr/share/maven3 && export PATH=${M2_HOME}/bin:${PATH} && export MAVEN_OPTS="-Xms2048m -Xmx2048m"
-  - java -version && javac -version && mvn -version -B
-  - mvn install:install-file -B -Dfile=microsoft-sqlserver-sqljdbc4/lib/sqljdbc41.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.1
+- mvn -N io.takari:maven:wrapper -Dmaven=3.5.0
+- java -version && javac -version && ./mvnw -version -B
+- ./mvnw install:install-file -B -Dfile=microsoft-sqlserver-sqljdbc4/lib/sqljdbc41.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.1
 before_script:
-  - mvn dependency:resolve-plugins dependency:resolve -B
+- ./mvnw dependency:go-offline -B
 script:
-  - mvn clean install -B -Dgpg.skip=true
+- ./mvnw clean install -B -Dgpg.skip=true
 cache:
   directories:
   - $HOME/.m2
