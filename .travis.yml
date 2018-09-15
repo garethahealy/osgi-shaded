@@ -19,4 +19,3 @@ script:
 cache:
   directories:
   - $HOME/.m2
-  - $HOME/.victims
